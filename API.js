@@ -4,7 +4,7 @@
 choose({
   isEmpty: empty,
   otherwise: qsRecurse
-}).of(list)
+}).given(list)
   .where({
     qsRecurse: function (list) {
       return this.recurse(lessThanHead(list))
@@ -16,7 +16,16 @@ choose({
 //choose will be our exposed method that will let users interface with the 
 //function builder
 function choose (options) {
-  
+  var keys = Object.keys(options);
+  return allDefined(options) ? 
+  function (args) {
+
+  } :
+  new Choose (keys,
+              keys.map(function (x){
+                return options[x];
+              })
+             );
 }
 
 //Choose will be the internal object we use for building up our partially 
@@ -25,13 +34,17 @@ function Choose (cases, handlers) {
   //we need to determine whether all the test case and handler functions are
   //defined either in the object passed to the choose function or globally. If
   //not, we need to give a "whereable" back from choose
+  //
 }
 
-//of introduces our value to the function that we're building up. Right now it's
+Choose.of = function () {};
+Choose.prototype.ap = function () {};
+
+//given introduces our value to the function that we're building up. Right now it's
 //taking an explicit argument, but I'd like to generalize this out to let us 
 //build a funtion that takes an arbitrary argument (isn't that the whole reason
 //we're here?).
-Choose.prototype.of = function (value) {
+Choose.prototype.given = function (value) {
   var context = this;
   //if we know what the handler for the given case is, we run that. if not, we 
   //need a where clause. In that case we return an object with a where function
