@@ -1,0 +1,24 @@
+{
+  "name": "daydream",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/mainTest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsluss/daydream.git"
+  },
+  "author": "Noah Sluss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nsluss/daydream/issues"
+  },
+  "homepage": "https://github.com/nsluss/daydream#readme",
+  "dependencies": {
+    "pointfree-fantasy": "^0.1.1",
+    "ramda": "^0.17.1",
+    "ramda-fantasy": "^0.3.0"
+  }
+}

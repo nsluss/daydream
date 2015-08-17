@@ -87,6 +87,12 @@ Node.prototype.concat = function (tree) {
 Text.prototype = Object.create(Leaf.prototype);
 Text.constructor = Text;
 
+
+Element.prototype.map = function(fn) {
+  var res = fn(this.value.map(fn))
+  return element(this.name, res);
+}
+
 var div  = element('div'),
     h1   = element('h1'),
     ul   = element('ul'),

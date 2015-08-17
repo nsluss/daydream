@@ -1,0 +1,11 @@
+var div  = new Node('div'),
+    h1   = new Node('h1'),
+    h2   = new Node('h2'),
+    h3   = new Node('h3'),
+    h4   = new Node('h4'),
+    h5   = new Node('h5'),
+    h6   = new Node('h6'),
+    ul   = new Node('ul'),
+    li   = new Node('li'),
+    ol   = new Node('ol'),
+    span = new Node('span');
